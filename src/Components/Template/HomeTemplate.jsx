@@ -7,7 +7,7 @@ const HomeTemplate = () => {
 
 
     return <>
-        <Counter count={10} step={7}>افزودن</Counter>
+        <Counter>افزودن</Counter>
     </>
 }
 
