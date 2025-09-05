@@ -16,7 +16,7 @@ const Counter =() =>{
         setCount(count -1)
         let masoud =count
         if (count===-5){
-            alert("خیلی خری")
+            alert("ول نمیکنی نه؟؟")
 
         }
 
@@ -24,7 +24,7 @@ const Counter =() =>{
 
     return <>
 
-        <div className={ "flex justify-between items-center h-10 p-10 " + " " + `${count  === 0 ? "bg-gray-300" : count > 0 ? "bg-green-500" : count < 0 ? "bg-red-500" :"" }` } dir={"rtl"}>
+        <div className={ "flex justify-between items-center h-10 p-10" + " " + (count > 0 ? "bg-green-400" : count < 0 ? "bg-red-400" : "bg-gray-300" ) } dir={"rtl"} >
             <div className={"flex flex-col items-center"}>
                 <button type={"button"} className={"rounded-t-md active:scale-95 active:shadow-md text-white bg-green-900 cursor-pointer  w-10"} onClick={pluse}>
                     +
@@ -40,4 +40,4 @@ const Counter =() =>{
         </div>
     </>
 }
- export default Counter
+export default Counter
