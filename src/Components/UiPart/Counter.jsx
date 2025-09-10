@@ -1,43 +1,122 @@
 import {useState} from "react";
 
-const Counter =() =>{
+const Todo = () => {
+    const [inputValue, setInputValue] = useState('');
 
-    const [count, setCount] = useState(0)
+    const [task1, setTask1] = useState({
+        name: "",
+        do: false,
+        deleted: false,
+    });
+    const [task2, setTask2] = useState({
+        name: "",
+        do: false,
+        deleted: false,
+    });
+    const [task3, setTask3] = useState({
+        name: "",
+        do: false,
+        deleted: false,
+    });
 
-    const pluse = () => {
-        setCount(count +1)
-        if (count===5){
-            alert("هوی چه خبره")
-
-        }
+    const handleValue = (event) => {
+        setInputValue(event.target.value);
     }
 
-    const minuse = () => {
-        setCount(count -1)
-        let masoud =count
-        if (count===-5){
-            alert("ول نمیکنی نه؟؟")
-
+    const handleAdd = (event) => {
+        if (task1.name === "") {
+            setTask1({
+                ...task1,
+                name: inputValue
+            })
+        }else if (task2.name === "") {
+            setTask2({
+                ...task2,
+                name: inputValue
+            })
+        }else {
+            setTask3({
+                ...task3,
+                name: inputValue
+            })
         }
 
+        setInputValue("");
     }
 
-    return <>
+    const deleteTask1 = () => {
+        setTask1({
+            ...task1,
+            deleted: true,
+        })
+    }
+    const deleteTask2 = () => {
+        setTask2({
+            ...task2,
+            deleted: true,
+        })
+    }
+    const deleteTask3 = () => {
+        setTask3({
+            ...task3,
+            deleted: true,
+        })
+    }
+    const doTask1 = () => {
+        setTask1({
+            ...task1,
+            do: true,
+        })
+    }
+    const doTask2 = () => {
+        setTask2({
+            ...task2,
+            do: true,
+        })
+    }
+    const doTask3 = () => {
+        setTask3({
+            ...task3,
+            do: true,
+        })
+    }
 
-        <div className={ "flex justify-between items-center h-10 p-10" + " " + (count > 0 ? "bg-green-400" : count < 0 ? "bg-red-400" : "bg-gray-300" ) } dir={"rtl"} >
-            <div className={"flex flex-col items-center"}>
-                <button type={"button"} className={"rounded-t-md active:scale-95 active:shadow-md text-white bg-green-900 cursor-pointer  w-10"} onClick={pluse}>
-                    +
-                </button>
-                <button type={"button"} className={"rounded-b-md bg-red-900 active:scale-95 active:shadow-md  text-white cursor-pointer  w-10"} onClick={minuse}>
-                    -
-                </button>
-            </div>
-            <div>
-                <span>{count}</span>
-            </div>
-
+    return (<>
+        <div>
+            <input  type="text" onChange={handleValue} value={inputValue} />
+            <button type={"button"} onClick={handleAdd}>add</button>
         </div>
-    </>
+        <div>
+            <br/>
+            {task1.name !== "" && task1.deleted === false && (<>
+                <div>
+                    {
+                        task1.do ? <s>{task1.name}</s> : task1.name
+                    }
+                    <button onClick={deleteTask1}>حذف</button>
+                    <button onClick={doTask1}>انجام شد</button>
+                </div>
+            </>)}
+            {task2.name !== "" && task2.deleted === false && (<>
+                <div>
+                    {
+                        task2.do ? <s>{task2.name}</s> : task2.name
+                    }
+                    <button onClick={deleteTask2}>حذف</button>
+                    <button onClick={doTask2}>انجام شد</button>
+                </div>
+            </>)}
+            {task3.name !== "" && task3.deleted === false && (<>
+                <div>
+                    {
+                        task3.do ? <s>{task3.name}</s> : task3.name
+                    }
+                    <button onClick={deleteTask3}>حذف</button>
+                    <button onClick={doTask3}>انجام شد</button>
+                </div>
+            </>)}
+        </div>
+    </>)
 }
-export default Counter
+
+export default Todo

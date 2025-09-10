@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');
+
+@layer base {
+
+
+   html, body{
+        direction: rtl;
+       font-family: "Cascadia Code", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+
+    .button{
+        @apply p-2 border active:scale-95 active:shadow-md cursor-pointer rounded-md text-center  block w-full;
+    }
+
+    .input{
+        @apply p-2 border  rounded-md focus:bg-green-100 w-full;
+    }
+
+}
+
+

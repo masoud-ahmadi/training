@@ -1,10 +1,37 @@
-const Button = () => {
+import {useEffect, useState} from "react";
+
+const Button = (props) => {
+    const [products, setProducts] = useState([
+        {
+            name: "product 1",
+            date: "okdpok"
+        },
+        {
+            name: "product 2",
+            date: "okdpok3o-0eo"
+        },
+        {
+            name: "product 3",
+            date: "okdpok3o-0eokioiko"
+        }
+    ]);
+
     return <>
-        <button className={"border p-2 bg-blue-500 active:opacity-50 cursor-pointer"}>
-            Click me!
-        </button>
         <br/>
-        <span className={""}>0</span>
+        <br/>
+        hello this is a button
+        <div className={"grid grid-cols-4 gap-10 my-10"}>
+            {
+                products.map((product) => {
+                    return <>
+                        <div className={"border p-4 bg-gray-100 rounded-2xl"}>
+                            <h1 className={"text-4xl"}>{product.name}</h1>
+                            <span>{product.date}</span>
+                        </div>
+                    </>
+                })
+            }
+        </div>
     </>
 }
 
