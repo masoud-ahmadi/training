@@ -84,7 +84,7 @@ const toDo =()=>{
         })
     }
     return <>
-        <div className={"space-y-5 container mx-auto "}>
+        <div className={"space-y-5 bg-green-400 p-3"}>
             <div className={"bg-gray-50 p-3 border border-gray-200 rounded-md"}>
                 <button type={"button"} className={"button w-20 bg-blue-900 hover:bg-blue-800 text-white"} onClick={openModal}>افزودن</button>
             </div>
