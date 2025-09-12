@@ -22,7 +22,7 @@ const Button = (props) => {
         hello this is a button
         <div className={"grid grid-cols-4 gap-10 my-10"}>
             {
-                products.map((product) => {
+                products.map((product,key) => {
                     return <>
                         <div className={"border p-4 bg-gray-100 rounded-2xl"}>
                             <h1 className={"text-4xl"}>{product.name}</h1>

@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const toDo =()=>{
+const ToDo =()=>{
     const [open, setOpen]=useState(false);
     const openModal =()=>{
         setOpen(true);
@@ -213,4 +213,4 @@ const toDo =()=>{
             </>
         }
 
-        export default toDo
+        export default ToDo
